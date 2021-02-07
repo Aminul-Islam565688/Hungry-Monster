@@ -70,7 +70,6 @@ const foodSearchfunction = () => {
 
             //Calling That Function That Will Give The Result Of Searched By User
             searchFoodUpdate(0, idMeal, strMeal, strMealThumb);
-
         })
 
     // To Search Food By Letter Using substr(String Method)
@@ -81,8 +80,18 @@ const foodSearchfunction = () => {
 
     searchFoodLetter(1, 2, firstLetter);
     searchFoodLetter(3, 4, secondLetter);
-    searchFoodLetter(5, 6, thirdLetter);
-    searchFoodLetter(7, fourthLetter);
+    
+    // To Make last Three Food Random By Click
+    for (let i = 5; i < 8; i++) {
+    fetch('https://www.themealdb.com/api/json/v1/1/random.php')
+        .then(res => res.json())
+        .then(data => {
+            let { meals } = data;
+            let [mealList] = meals;
+            let { idMeal, strMeal, strMealThumb } = mealList;
+            searchFoodUpdate(i, idMeal, strMeal, strMealThumb);
+        }
+    )}
 }
 
 
