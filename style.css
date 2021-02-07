@@ -33,6 +33,7 @@ body{
     font-size: 20px;
     width: 390px;
     height: 40px;
+    cursor: pointer;
 }
 .header-wrapper {
     display: flex;
@@ -50,6 +51,7 @@ body{
     font-size: 20px;
     height: 46px;
     width: 100px;
+    cursor: pointer;
 }
 
 .header-content {
@@ -60,15 +62,20 @@ body{
     outline: none;
 }
 .single-food-items {
-    background: #ddd;
-    height: 100%;
-    width: 100%;
+    background: #f99f1c;
+    /* height: 100%; */
+    /* width: 100%; */
+    color: white;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 1px -1px 6px black;
 }
 
 .food-items-wrappper {
     display: grid;
-    grid-template-columns: repeat(4,240px);
-    grid-template-rows: repeat(2,230px);
+    grid-template-columns: repeat(4,250px);
+    grid-template-rows: repeat(2,250px);
     grid-gap: 25px;
     justify-content: center;
 }
@@ -85,13 +92,59 @@ body{
 }
 
 .food-name {
-    padding: 9px;
-    font-size: 24px;
     text-align: center;
+    height: 20%;
 }
 
 .food-name p {
+    width: 234px;
+    font-weight: 600;
+    font-size: 18px;
     margin: auto;
+    padding: 13px;
+    line-height: 30px;
 }
 
+#ingredientCart {
+    width: 445px;
+    height: 570px;
+    margin: auto;
+    background: #ffffff;
+    display: none;
+    box-shadow: 0px 0px 5px black;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: -100px;
+}
 
+.ingredient-image-div {
+    width: 100%;
+    height: 300px;
+}
+
+#ingredientImage {
+    width: 100%;
+    height: 100%;
+}
+#foodIngredientTitle {
+    font-size: 22px;
+    margin-left: 15px;
+}
+.ingredient-highlight-text{
+    font-size: 17px;
+    margin-left: 15px;
+}
+#ingredientList {
+    list-style: none;
+    margin-left: -25px;
+}
+.food-icon{
+    color: #f99f1c;
+}
+#ingredientList li {
+    color: #000;
+}
+
+.ingredient-list-div {
+    border-top: 3px solid orange;
+}
