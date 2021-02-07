@@ -44,8 +44,6 @@ body{
 
 .search-button {
     border: none;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
     background: #f99f1c;
     color: white;
     font-size: 20px;
@@ -57,6 +55,8 @@ body{
 .header-content {
     border: 2px solid black;
     border-radius: 5px;
+    background-color: white;
+    overflow: hidden;
 }
 .search-input:focus, .search-button:focus{
     outline: none;
