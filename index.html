@@ -34,7 +34,7 @@
         <div class="container">
             <div class="header-wrapper">
                 <div id="foodSearchContent" class="header-content">
-                    <input id="foodInput" class="search-input" type="search" placeholder="Enter Food Name">
+                    <input id="foodInput" class="search-input" type="search" placeholder="Search For Meal">
                     <button id="foodSearch" onclick="foodSearchfunction()" class="search-button">Search</button>
                 </div>
             </div>
@@ -116,6 +116,7 @@
                 <!-- Ingredient Part -->
                 <div id="ingredientCart">
                     <div class="ingredient-image-div">
+                        <i onclick="crossFunction()" class="fas fa-times-circle cross-button"></i>  
                         <img id="ingredientImage" src="">
                     </div>
                     <div class="ingredient-list-div">

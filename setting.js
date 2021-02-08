@@ -6,7 +6,7 @@ for (let i = 0; i < foodList.length; i++) {
         .then(data => {
             let { meals } = data;
             let [mealList] = meals;
-            let { idMeal, strMeal, strMealThumb } = mealList;
+            let { idMeal, strMeal, strMealThumb} = mealList;
 
             // Food Image
             let foodImage = document.querySelectorAll('.food-image img');
@@ -15,6 +15,7 @@ for (let i = 0; i < foodList.length; i++) {
             // Food Name 
             let foodNameList = document.querySelectorAll("#singleFoodName");
             foodNameList[i].innerText = strMeal;
+
 
             // Adding idMeal in Class
             foodImage[i].classList.add(idMeal);
@@ -122,4 +123,12 @@ let searchFoodUpdate = (i, idMeal, strMeal, strMealThumb) => {
     foodNameList[i].classList.remove(deleteFoodId);
     foodImage[i].classList.add(idMeal);
     foodNameList[i].classList.add(idMeal);
+}
+
+
+// Cross Function 
+let crossFunction = () => {
+    document.getElementById("ingredientCart").style.display="none";
+    document.getElementById("foodItemsId").style.display = "grid";
+    document.getElementById("foodSearchContent").style.display = 'block'
 }
