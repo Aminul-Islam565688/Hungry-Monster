@@ -75,7 +75,8 @@ body{
     display: grid;
     grid-template-columns: repeat(4,250px);
     grid-template-rows: repeat(2,250px);
-    grid-gap: 25px;
+    grid-row-gap: 70px;
+    grid-column-gap: 40px;
     justify-content: center;
 }
 
@@ -163,4 +164,13 @@ body{
 .cross-button:hover{
     color: red;
     background-color: black;
+}
+.first-food-item {
+    display: none;
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    width: 350px;
+    height: 334px;
+    margin: -45px auto;
+    position: relative;
 }

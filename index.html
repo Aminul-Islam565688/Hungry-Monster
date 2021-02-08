@@ -47,7 +47,19 @@
     <main>
         <section id="foodItems">
             <div class="container">
+                <!-- Random Meals And Searched Meal Result -->
                 <div onclick="ingredient()" id="foodItemsId" class="food-items-wrappper">
+                    <!-- Searched Meal by Meal Name-->
+                    <div class="single-food-items first-food-item">
+                        <div class="food-image">
+                        <i onclick="closeResultMealFunction()" class="fas fa-times-circle cross-button"></i>
+                            <img id="singleFoodImg" class="">
+                        </div>
+                        <div class="food-name">
+                            <p id="singleFoodName" class=""></p>
+                        </div>
+                    </div>
+                    <!-- Random Meals and Searched Meals by Letter -->
                     <div class="single-food-items">
                         <div class="food-image">
                             <img id="singleFoodImg" class="">
@@ -116,7 +128,7 @@
                 <!-- Ingredient Part -->
                 <div id="ingredientCart">
                     <div class="ingredient-image-div">
-                        <i onclick="crossFunction()" class="fas fa-times-circle cross-button"></i>  
+                        <i onclick="closeIngredientFunction()" class="fas fa-times-circle cross-button"></i>
                         <img id="ingredientImage" src="">
                     </div>
                     <div class="ingredient-list-div">

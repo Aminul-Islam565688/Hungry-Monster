@@ -6,7 +6,7 @@ for (let i = 0; i < foodList.length; i++) {
         .then(data => {
             let { meals } = data;
             let [mealList] = meals;
-            let { idMeal, strMeal, strMealThumb} = mealList;
+            let { idMeal, strMeal, strMealThumb } = mealList;
 
             // Food Image
             let foodImage = document.querySelectorAll('.food-image img');
@@ -62,15 +62,24 @@ let ingredient = (event) => {
 // Main Function For Searched Food By User And It's Also Change Other's Food By Using Inputed Values Letter
 const foodSearchfunction = () => {
     let foodInput = document.getElementById("foodInput").value;
+    if (foodInput.length == 0) {
+        alert("Please Write Meal Name in SearchBox Before Searching")
+    }
+    else{
     fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=' + foodInput)
         .then(res => res.json())
         .then(data => {
             let { meals } = data;
             let [mealList] = meals;
             let { idMeal, strMeal, strMealThumb } = mealList;
-
             //Calling That Function That Will Give The Result Of Searched By User
             searchFoodUpdate(0, idMeal, strMeal, strMealThumb);
+            document.querySelector(".food-items-wrappper").style.gridTemplateRows = "repeat(3,250px)";
+            document.querySelector(".first-food-item").style.display = "block"
+        })
+        .catch(() => {
+            alert("Please Search Valid Meal Name");
+            document.getElementById("foodInput").value = "";
         })
 
     // To Search Food By Letter Using substr(String Method)
@@ -81,18 +90,20 @@ const foodSearchfunction = () => {
 
     searchFoodLetter(1, 2, firstLetter);
     searchFoodLetter(3, 4, secondLetter);
-    
+
     // To Make last Three Food Random By Click
-    for (let i = 5; i < 8; i++) {
-    fetch('https://www.themealdb.com/api/json/v1/1/random.php')
-        .then(res => res.json())
-        .then(data => {
-            let { meals } = data;
-            let [mealList] = meals;
-            let { idMeal, strMeal, strMealThumb } = mealList;
-            searchFoodUpdate(i, idMeal, strMeal, strMealThumb);
-        }
-    )}
+    for (let i = 5; i < foodList.length; i++) {
+        fetch('https://www.themealdb.com/api/json/v1/1/random.php')
+            .then(res => res.json())
+            .then(data => {
+                let { meals } = data;
+                let [mealList] = meals;
+                let { idMeal, strMeal, strMealThumb } = mealList;
+                searchFoodUpdate(i, idMeal, strMeal, strMealThumb);
+            }
+            )
+    }
+}
 }
 
 
@@ -126,9 +137,16 @@ let searchFoodUpdate = (i, idMeal, strMeal, strMealThumb) => {
 }
 
 
-// Cross Function 
-let crossFunction = () => {
-    document.getElementById("ingredientCart").style.display="none";
+// Close Function to Close Meal Ingredient Cart 
+let closeIngredientFunction = () => {
+    document.getElementById("ingredientCart").style.display = "none";
     document.getElementById("foodItemsId").style.display = "grid";
     document.getElementById("foodSearchContent").style.display = 'block'
+}
+
+
+// Close Function to Close Result Meal
+let closeResultMealFunction = () => {
+    document.querySelector(".first-food-item").style.display = "none";
+    document.querySelector(".food-items-wrappper").style.gridTemplateRows = "repeat(2,250px)";
 }
